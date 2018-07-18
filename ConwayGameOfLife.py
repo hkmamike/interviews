@@ -38,7 +38,7 @@ class Solution:
                     if state[r+1][c+1] == 1:
                         liveNeighbors += 1
             
-            return liveNeighbors == 3
+            return int(liveNeighbors == 3)
         
         def checkLiveRules(state, r, c):
             liveNeighbors = 0
@@ -85,10 +85,10 @@ class Solution:
             for c in range(w):
                 
                 if state[r][c] == 0:
-                    newState[r][c] = int(checkDeadRules(state, r, c))
+                    newState[r][c] = checkDeadRules(state, r, c)
                     
                 elif state[r][c] == 1:
-                    newState[r][c] = int(checkLiveRules(state, r, c))
+                    newState[r][c] = checkLiveRules(state, r, c)
         
         return self.nextGen(newState, m-1, h, w)
     
